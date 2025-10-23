@@ -2,6 +2,20 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
+  turbopack: {
+    root: "C:/Users/USER/Desktop/student_teacher_system/client",
+  }
 };
+
+module.exports = {
+  async rewrites() {
+    return [
+      {
+        source: '/api/:path*',
+        destination: 'http://localhost:5000/api/:path*' // Proxy to Backend
+      }
+    ]
+  }
+}
 
 export default nextConfig;
