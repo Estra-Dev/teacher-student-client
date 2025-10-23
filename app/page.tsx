@@ -9,7 +9,7 @@ export default function Home() {
 
   const { user } = useUserProfile();
 
-  const role = user?.role === "student" || "undefined";
+  const role = user?.role;
   console.log("role", role)
   return (
     <div className=" mt-30 min-h-screen p-4">
@@ -27,12 +27,12 @@ export default function Home() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <Link
-                  href={` ${ role ? "/become_teacher" : "/dashboard/teacher" }`}
+                  href={` ${ role === "student" ? "/become_teacher" : "/dashboard/teacher" }`}
                   className="bg-blue-500 hover:bg-blue-500/90 text-primary-foreground px-4 py-2 rounded text-center"
                 >
                   Start Teaching
                 </Link>
-                <Link href={!role ? "/become_student" : "/dashboard/student"} className=" hover:bg-gray-100/80 text-foreground shadow-2xl px-4 py-2 rounded text-center">
+                <Link href={role === "teacher" ? "/become_student" : "/dashboard/student"} className=" hover:bg-gray-100/80 text-foreground shadow-2xl px-4 py-2 rounded text-center">
                 Start Learning
                 </Link>
               </div>
@@ -108,13 +108,13 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href={` ${ role ? "/become_teacher" : "/dashboard/teacher" }`}
+              href={` ${ role === "student" ? "/become_teacher" : "/dashboard/teacher" }`}
               className="bg-blue-500 px-2 py-1.5 rounded-sm hover:bg-blue-500/90 text-primary-foreground"
             >
               Start Teaching
             </Link>
             <Link 
-              href={!role ? "/become_student" : "/dashboard/student"}
+              href={role === "teacher" ? "/become_student" : "/dashboard/student"}
               className="bg-gray-100 px-2 py-1.5 rounded-sm hover:bg-gray-100/90 text-gray-800 border"
             >
               Start Learning

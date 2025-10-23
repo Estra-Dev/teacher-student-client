@@ -6,7 +6,7 @@ import React from 'react'
 const page = () => {
 
   return (
-    <div className=' h-screen w-screen flex flex-col justify-center gap-10 pt-20'>
+    <div className=' h-screen w-screen flex flex-col justify-center gap-10 pt-20 mt-32'>
       <div className='flex flex-col items-center justify-center overflow-hidden'>
         <div>
           <Image src={"/prin.png"} width={500} height={500} alt='Logo' />
